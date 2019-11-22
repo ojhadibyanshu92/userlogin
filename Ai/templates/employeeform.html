@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load crispy_forms_tags %}
+    {% load bootstrap4 %}
+    <div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post" autocomplete="off">
+                        <h2 style="color:black">Enter The Employee Details</h2>
+                        {% bootstrap_form empform %}
+{#                        {{ custform|crispy }}#}
+                        <input type="submit" value="Submit" class="btn btn-success">
+                        <input type="reset" value="Clear" class="btn btn-danger">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ai</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <style>
+        .asteriskField {
+            display: none;
+        }
+
+        form {
+            margin-bottom: 50px;
+
+        }
+
+        body {
+            margin-bottom: 2%;
+        }
+    </style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #e3f2fd; margin-bottom: 20px">
+    <a class="navbar-brand" href="{% url 'home' %}">My site</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'city' %}">City</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'state' %}">State</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'billing' %}">Billing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'customer' %}">Customer</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Forms Set 1
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'country' %}">Country Entry Form</a>
+                        <a class="dropdown-item" href="{% url 'unitlocation' %}">Unit Location Form</a>
+                        <a class="dropdown-item" href="{% url 'employee' %}">Employee Form</a>
+                        <a class="dropdown-item" href="{% url 'machine' %}">Machine List Form</a>
+                        <a class="dropdown-item" href="{% url 'delivery' %}">Delivery Form</a>
+                        <a class="dropdown-item" href="{% url 'vendor' %}">Vendor Entry Form</a>
+                        <a class="dropdown-item" href="{% url 'customercontact' %}">Customer Contact Form</a>
+                        <a class="dropdown-item" href="{% url 'orgdesignation' %}">Organization Designation Form</a>
+                        <a class="dropdown-item" href="{% url 'empcategory' %}">Employee Category Form</a>
+                        <a class="dropdown-item" href="{% url 'vendorcontact' %}">Vendor Contact Form</a>
+                        <a class="dropdown-item" href="{% url 'meterialcategory' %}">Material Category Form</a>
+                        <a class="dropdown-item" href="{% url 'meterialsubcategory' %}">Material Sub Category Form</a>
+                        <a class="dropdown-item" href="{% url 'purchasematerial' %}">Purchase Material Form</a>
+                        <a class="dropdown-item" href="{% url 'productmaster' %}">Product Master Form</a>
+                        <a class="dropdown-item" href="{% url 'productartwork' %}">Product Art Work Form</a>
+                        <a class="dropdown-item" href="{% url 'productcategory' %}">Product Category Form</a>
+                        <a class="dropdown-item" href="{% url 'productrate' %}">Product Rate Form</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Forms Set 2
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{% url 'baf' %}">Baf Form</a>
+                        <a class="dropdown-item" href="{% url 'bafdetail' %}">Baf Detail Form</a>
+                        <a class="dropdown-item" href="{% url 'platedetail' %}">Plate Detail Form</a>
+                        <a class="dropdown-item" href="{% url 'platerequest' %}">Plate Request Form</a>
+                        <a class="dropdown-item" href="{% url 'platetransfer' %}">Plate Transfer Form</a>
+                        <a class="dropdown-item" href="{% url 'termcondition' %}">Term Condition Form</a>
+                        <a class="dropdown-item" href="{% url 'quotation' %}">Quotation Entry Form</a>
+                        <a class="dropdown-item" href="{% url 'quotationproduct' %}">Quotation Product Form</a>
+                        <a class="dropdown-item" href="{% url 'orderbooking' %}">Order Booking Form</a>
+                        <a class="dropdown-item" href="{% url 'orderbookingdetail' %}">Order Booking Detail Form</a>
+                    </div>
+                </li>
+
+            {% endif %}
+        </ul>
+
+
+        <form class="form-inline my-2 my-lg-0">
+            {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class="btn btn-outline-secondary">LogOut</a>
+                <a href="{% url 'password_change' %}" class="btn btn-outline-success ml-2">change password</a>
+            {% else %}
+                <a href="{% url 'signup' %}" class="btn btn-primary ml-2">SignUp</a>
+                <a href="{% url 'login' %}" class="btn btn-outline-secondary ml-2">LogIn</a>
+            {% endif %}
+        </form>
+
+    </div>
+</nav>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+{% block content %}
+{% endblock %}
+</body>
+</html>
